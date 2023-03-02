@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names....">
+    <ul id="myUl">
+        <li><a>Apple</a></li>
+        <li><a>Mango</a></li>
+        <li><a>Banana</a></li>
+        <li><a>Orange</a></li>
+        <li><a>Grapes</a></li>
+    </ul>
+
+
+    <script>
+        function myFunction(){
+            var input ,filter,ul,li,a,txtValue;
+            input=document.getElementById('myInput');
+            filter=input.value.toUpperCase();
+            ul=document.getElementById('myUl');
+            li=ul.getElementsByTagName('li');
+
+            for (i=0;i<li.length;i++){
+                a=li[i].getElementsByTagName('a')[0];
+                txtValue=a.textContent || a.innerText;
+                if(txtValue.toUpperCase().indexOf(filter)>-1){
+                    li[i].style.display="";
+
+                }
+                else{
+                    li[i].style.display="none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
